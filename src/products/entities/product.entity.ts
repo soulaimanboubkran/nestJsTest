@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Country} from './country.entity';
 
 
 @Entity()
@@ -9,6 +10,12 @@ export class Product {
     title:string;
     @Column()
     price:number;
+
+    @JoinTable()
+    @ManyToMany(type=> Country,
+        country => country.products,{cascade:true})
+    countries:Country[]    
+    
 
 
 }

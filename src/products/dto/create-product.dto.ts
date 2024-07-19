@@ -6,4 +6,9 @@ export class createProduct{
 
    @IsNumber()
    readonly price: number;
+
+
+   @IsString({each:true})
+   readonly countries: string[];
+
 }
