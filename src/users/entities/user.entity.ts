@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Profile } from "./profile.entity";
 
 @Entity()
 export class User {
@@ -8,8 +9,6 @@ export class User {
     @Column()
     userName: string;
 
-    @Column({nullable:true})
-    userUUID: string;
 
 
 
@@ -18,4 +17,8 @@ export class User {
 
     @Column({nullable:true})
     role: string;
+
+    @OneToOne(()=>Profile)
+    @JoinColumn()
+    profile:Profile;
 }

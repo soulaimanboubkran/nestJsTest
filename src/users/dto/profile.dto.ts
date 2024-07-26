@@ -1,5 +1,6 @@
 import { IsNotEmpty, IsString } from "class-validator";
-import { Role } from "../interface/Role";
+import { Role } from "../auth/interface/Role";
+
 
 export class ProfileDto {
 
@@ -7,9 +8,6 @@ export class ProfileDto {
     @IsString()
     readonly id:string;
 
-    @IsNotEmpty()
-    @IsString()
-    readonly userUUID:string;
 
 
     @IsNotEmpty()
